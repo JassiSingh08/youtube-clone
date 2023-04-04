@@ -4,9 +4,8 @@ import { Stack } from '@mui/material';
 import { categories } from '../utils/constant';
 import { Category } from '@mui/icons-material';
 
-const SelectedCategory = "New";
 
-const Sidebar = () => (
+const Sidebar = ({selectedCategory, setSelectedCategory}) => (
      <Stack 
      direction= 'row'
      sx={{
@@ -17,11 +16,12 @@ const Sidebar = () => (
 
         {categories.map((Category) => (
             <button className='category-btn'
-             style={{background:Category.name === SelectedCategory && '#fc1503', color:'white'}}
+            onClick={()=> setSelectedCategory(Category.name)}
+             style={{background:Category.name === selectedCategory && '#fc1503', color:'white'}}
              key={Category.name}
             >
-                <span style={{ color: Category.name=== SelectedCategory ? 'white' : 'red', marginRight:'15px' }}>{Category.icon}</span>
-                <span style={{opacity: Category.name === SelectedCategory ? '1' : 0.8}}>{Category.name}</span>
+                <span style={{ color: Category.name=== selectedCategory ? 'white' : 'red', marginRight:'15px' }}>{Category.icon}</span>
+                <span style={{opacity: Category.name === selectedCategory ? '1' : 0.8}}>{Category.name}</span>
             </button>
         ))}
      </Stack>

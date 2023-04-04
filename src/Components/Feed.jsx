@@ -2,19 +2,42 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 
-import Sidebar from './Sidebar';
+import { fetchFromAPI } from '../utils/fetchFromAPI';
+import {Sidebar,Videos} from './';
 
 const Feed = () => {
+
+  const [selectedCategory, setSelectedCategory] = useState('New');
+  
+
+
+  useEffect(()=>{
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+    .then((data)=>{})
+  },[selectedCategory]);  
+  // evert time we select something in sidebar it will call useeffect everytime
+
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "1px solid #3d3d3d", px: { sx: 0, md: 2 } }}> 
       {/* md means medium devices sx means if laptop keep same if md change accordingly can do with help of objects and material ui  */}
 
-        <Sidebar />
+        <Sidebar 
+         selectedCategory={selectedCategory}
+         setSelectedCategory={setSelectedCategory}
+        />
 
         <Typography className='copyright' variant="body2" sx={{ mt: 1.5, color: '#fff'}}>
           Copyright 2023 JS*
         </Typography>
+      </Box>
+      
+      <Box p={2} sx={{overflowY: 'auto', height: '90vh', flex:2}}>
+        <Typography variant='h4' fontWeight='bold' mb = '2' sx={{color:'white'}}> {selectedCategory}
+          <span style ={{ color : '#f31503'}}> videos</span>
+        </Typography>
+
+        <Videos videos={[]}/>
 
       </Box>
     </Stack>
