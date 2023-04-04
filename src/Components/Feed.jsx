@@ -8,8 +8,6 @@ import {Sidebar,Videos} from './';
 const Feed = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('New');
-  
-
 
   useEffect(()=>{
     fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
