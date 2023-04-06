@@ -8,11 +8,13 @@ import {Sidebar,Videos} from './';
 const Feed = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('New');
+  const [videos, setVideos] = useState([]);
 
   useEffect(()=>{
     fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
-    .then((data)=>{})
+    .then((data)=>setVideos(data.items))
   },[selectedCategory]);  
+
   // evert time we select something in sidebar it will call useeffect everytime
 
   return (
@@ -35,7 +37,7 @@ const Feed = () => {
           <span style ={{ color : '#f31503'}}> videos</span>
         </Typography>
 
-        <Videos videos={[]}/>
+        <Videos videos={videos}/>
 
       </Box>
     </Stack>
