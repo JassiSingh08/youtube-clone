@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { fetchFromAPI} from '../utils/fetchFromAPI'
+import { fetchFromAPI} from '../utils/fetchFromAPI';
 
 
 const VideoDetail = () => {
@@ -12,12 +12,12 @@ const VideoDetail = () => {
 
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
-      .then((data) => setVideoDetail(data.items[0]));
+    .then((data) => setVideoDetail(data.items[0]));
   }, [id]);
 
 
-  const { snippet:{ title, channelId, channelTitle},statistics:{viewCount, likeCount}} = videoDetail;
-
+  const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
+  
   return (
     <Box minHeight="95vh">
       <Stack direction={{xs: 'column', md: 'row'}}>
