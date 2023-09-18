@@ -46,39 +46,6 @@ Follow the instructions below to set up the YouTube Clone frontend project on yo
 - Node.js installed on your machine.
 - A YouTube DB API key. You can obtain this by signing up for access to the YouTube DB API on the Rapid API platform.
 
-### Installation
-
-1. Clone this repository to your local machine using Git:
-
-   ```bash
-   git clone https://github.com/yourusername/youtube-clone-frontend.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd youtube-clone-frontend
-   ```
-
-3. Install the project dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Create a `.env` file in the project root directory and add your YouTube DB API key:
-
-   ```env
-   REACT_APP_YOUTUBE_API_KEY=your_api_key_here
-   ```
-
-5. Start the development server:
-
-   ```bash
-   npm start
-   ```
-
-The development server should now be running at `http://localhost:3000`.
 
 ## Usage
 
